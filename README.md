@@ -120,7 +120,6 @@ The Logistic Regression model achieved the strongest overall combination of F1 S
 ## 🔬 Cross-Validation
 
 A 5-Fold Stratified Cross-Validation was performed.
-
 | Metric | Mean ± Std |
 |---|---:|
 | Accuracy | 0.8030 ± 0.0125 |
