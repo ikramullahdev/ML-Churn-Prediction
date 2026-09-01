@@ -13,7 +13,11 @@ The project includes data preprocessing, exploratory data analysis, multiple cla
 https://ml-churn-prediction-jf5my7g32mstcnhsf4wyul.streamlit.app/
 
 ---
+## 🖥️ Application Preview
 
+![Customer Churn Prediction App](screenshots/churn-app.png)
+
+---
 ## 🎯 Project Objective
 
 Customer churn is an important business problem in the telecommunications industry.
