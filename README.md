@@ -2,54 +2,67 @@
 
 An end-to-end Machine Learning project that predicts whether a telecom customer is likely to churn.
 
+The project includes data preprocessing, exploratory data analysis, multiple classification models, hyperparameter tuning, threshold optimization, model evaluation, and an interactive Streamlit web application for real-time churn prediction.
+
+---
+
+## 🚀 Live Demo
+
+👉 Live Streamlit App:
+
+https://ml-churn-prediction-jf5my7g32mstcnhsf4wyul.streamlit.app/
+
+---
+
 ## 🎯 Project Objective
 
-Customer churn is a major business problem for subscription-based companies.
+Customer churn is an important business problem in the telecommunications industry.
 
-The goal of this project is to:
+The goal of this project is to build a machine learning system that can:
 
-- Analyze customer behavior
-- Identify factors associated with churn
-- Train multiple classification models
-- Optimize the churn decision threshold
-- Predict churn probability for new customers
-- Provide actionable customer retention recommendations
+- Predict customer churn probability
+- Identify customers at high risk of leaving
+- Compare different classification algorithms
+- Optimize the prediction threshold
+- Provide an easy-to-use web interface
+- Support proactive customer retention strategies
 
-## 📁 Dataset
+---
 
-The project uses the IBM Telco Customer Churn dataset.
+## 📂 Dataset
 
-Dataset contains:
+The project uses the Telco Customer Churn dataset.
 
-- 7,043 customers
-- 21 original features
-- Customer demographic information
-- Services and subscription information
-- Billing information
-- Churn target variable
-
-## 🔎 Exploratory Data Analysis
-
-Key findings:
+### Dataset Information
 
 - Total customers: **7,043**
-- Customers who did not churn: **5,174 (73.46%)**
-- Customers who churned: **1,869 (26.54%)**
-- Duplicate rows: **0**
-- Duplicate customer IDs: **0**
-- `TotalCharges` contained 11 blank values
-- Blank `TotalCharges` values were handled during preprocessing
+- Features: **19**
+- Target: **Churn**
+- Numerical features: **4**
+- Categorical features: **15**
+
+### Target Distribution
+
+| Churn | Customers |
+|---|---:|
+| No | 5,174 |
+| Yes | 1,869 |
+
+The dataset contains customer demographic information, service subscriptions, contract information, payment methods, tenure, and billing information.
+
+---
 
 ## 🧹 Data Preprocessing
 
-The project includes:
+The following preprocessing steps were performed:
 
 - Missing value handling
-- Numeric feature conversion
+- Data type conversion
+- Separation of features and target
+- Numerical feature preprocessing
 - Categorical feature encoding
-- Feature preprocessing using Scikit-learn Pipeline
-- Train/test split
-- Stratified sampling
+- Train-test split
+- Stratified sampling to preserve the churn ratio
 
 ### Numerical Features
 
@@ -76,43 +89,56 @@ The project includes:
 - PaperlessBilling
 - PaymentMethod
 
-## 🤖 Models
+---
 
-Three machine learning models were evaluated:
+## 🤖 Machine Learning Models
+
+Three classification algorithms were evaluated:
 
 1. Logistic Regression
 2. Random Forest
 3. XGBoost
 
-## 📊 Model Comparison
+---
 
-| Model               | Accuracy | Precision | Recall |     F1 | ROC-AUC |
-| ------------------- | -------: | --------: | -----: | -----: | ------: |
-| Logistic Regression |   0.8070 |    0.6604 | 0.5615 | 0.6069 |  0.8422 |
-| Random Forest       |   0.7743 |    0.5648 | 0.6524 | 0.6055 |  0.8271 |
-| XGBoost             |   0.7956 |    0.6473 | 0.5053 | 0.5676 |  0.8404 |
+## 📈 Model Comparison
 
-Logistic Regression achieved the strongest overall balance of performance and was selected as the final model.
+| Model | Accuracy | Precision | Recall | F1 Score | ROC-AUC |
+|---|---:|---:|---:|---:|---:|
+| Logistic Regression | 0.8070 | 0.6604 | 0.5615 | **0.6069** | **0.8422** |
+| Random Forest | 0.7743 | 0.5648 | **0.6524** | 0.6055 | 0.8271 |
+| XGBoost | 0.7956 | 0.6473 | 0.5053 | 0.5676 | 0.8404 |
 
-## 🔁 Cross-Validation
+### Selected Model
 
-5-Fold Cross-Validation:
+**Logistic Regression**
 
-| Metric    |   Mean |    Std |
-| --------- | -----: | -----: |
-| Accuracy  | 0.8030 | 0.0125 |
-| Precision | 0.6552 | 0.0284 |
-| Recall    | 0.5445 | 0.0407 |
-| F1        | 0.5941 | 0.0303 |
-| ROC-AUC   | 0.8462 | 0.0126 |
+The Logistic Regression model achieved the strongest overall combination of F1 Score and ROC-AUC among the evaluated models.
+
+---
+
+## 🔬 Cross-Validation
+
+A 5-Fold Stratified Cross-Validation was performed.
+
+| Metric | Mean ± Std |
+|---|---:|
+| Accuracy | 0.8030 ± 0.0125 |
+| Precision | 0.6552 ± 0.0284 |
+| Recall | 0.5445 ± 0.0407 |
+| F1 Score | 0.5941 ± 0.0303 |
+| ROC-AUC | **0.8462 ± 0.0126** |
+
+The cross-validation results indicate that the model provides consistent performance across different validation folds.
+
+---
 
 ## ⚙️ Hyperparameter Tuning
 
-GridSearchCV was used to optimize Logistic Regression.
+GridSearchCV was used to optimize the Logistic Regression model.
 
-Best parameters:
+### Best Parameters
 
 ```text
 C = 100
 solver = liblinear
-```
